@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Sign In</title>
+
+        <style>
+            body{
+                background-color: black;
+            }
+            div{
+                text-align: center;
+                background-color: indigo;
+                padding: 5%;
+                margin-left: 25%;
+                margin-right: 25%;
+            }
+            a{
+                color: floralwhite;
+            }
+            h1{
+                color: grey;
+            }
+        </style>
+        <script>
+            function k(){
+                alert("Click Me");
+            }
+        </script>
+
+
+    </head>
+
+    <body>
+        <div>
+            <h1>Sign In</h1>
+            <form action="signin.php" method="POST">
+                <p><input type="text" id="email" name="email" placeholder="Enter your email..." required></input></p>
+                <p><input type="password" id="password" name="password" placeholder="Enter your password..." required></input></p>
+                <p><button onhover="k()">Submit</button></p>
+            </form>
+            <a href="signup.html">Not a user? Sign Up</a>
+        </div>
+    </body>
+</html>
