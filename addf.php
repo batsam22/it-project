@@ -28,11 +28,11 @@ include ("db.php");
                 padding-bottom:20%;
             }
             .content{
+                font-family: verdana;
                 padding: 5%;
-                float: left;
                 text-align: center;
-                background-color:indigo;
-                margin-left:2%;
+                background-color: indigo;
+                margin-left: 15%;
             }
         </style>
     </head>
@@ -54,12 +54,22 @@ include ("db.php");
         <?php
         
         if(isset($_POST['name'])){
-            $name=$_POST['name'];
-            $q1="create table $name (sno int(10) primary key auto_increment, email varchar(20), content varchar(1000), date varchar(11), foreign key(email) references signin(email))";
-            $res1=mysqli_query($db,$q1);
-            $q2="insert into forums (name) values ('$name')";
-            $res2=mysqli_query($db,$q2) or die("Forum exists");
-            header ("location:home.php");
+            $email=$_SESSION['email'];
+            $q="select * from signin where email='$email'";
+            $res=mysqli_query($db,$q);
+            $r=mysqli_fetch_array($res);
+            if ($r['report']>=5){
+                echo "<p>You Are NOT Allowed To Post Anymore</p>";
+                echo "<p><a href=home.php>ok :( </a></p>";
+            }
+            else{
+                $name=$_POST['name'];
+                $q1="create table $name (sno int(10) primary key auto_increment, email varchar(20), content varchar(1000), date varchar(11), foreign key(email) references signin(email))";
+                $res1=mysqli_query($db,$q1);
+                $q2="insert into forums (name) values ('$name')";
+                $res2=mysqli_query($db,$q2) or die("Forum exists");
+                header ("location:home.php");
+            }
         }
 
         ?>

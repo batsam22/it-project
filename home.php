@@ -3,6 +3,7 @@ session_start();
 if (isset($_SESSION['forumName'])){
     unset($_SESSION['forumName']);
 }
+include ("db.php");
 ?>
 <html>
     <head>
@@ -54,11 +55,11 @@ if (isset($_SESSION['forumName'])){
                 padding-bottom:20%;
             }
             .content{
+                font-family: verdana;
                 padding: 5%;
-                float: left;
                 text-align: center;
-                background-color:indigo;
-                margin-left:2%;
+                background-color: indigo;
+                margin-left: 15%;
             }
         </style>
     </head>
@@ -80,6 +81,13 @@ if (isset($_SESSION['forumName'])){
                 <?php
                 if (!isset($_SESSION['email']))
                     echo "<p> Please Sign In to veiw all the different forums</p>";
+                else{
+                    $email=$_SESSION['email'];
+                    $q1="select * from signin where email='$email'";
+                    $res1=mysqli_query($db,$q1);
+                    $r=mysqli_fetch_array($res1);
+                    echo "<p>You have ".$r['report']." reports against you. If you get 5 or more, You will not be allowed to post anything or create forums anymore.</p>";
+                }
                 ?>
                 <div id = "forums">
                 </div>

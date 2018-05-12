@@ -14,12 +14,11 @@ include ("db.php");
         color:white;
     }
     .content{
-        font-family:verdana;
+        font-family: verdana;
         padding: 5%;
-        float: left;
         text-align: center;
-        background-color:indigo;
-        margin-left:2%;
+        background-color: indigo;
+        margin-left: 15%;
     }
     .options{
         float: left;
@@ -30,7 +29,6 @@ include ("db.php");
     }
     .comment{
         background-color:black;
-        border-radius: 100%
     }
     a{
         color:white;
@@ -63,6 +61,10 @@ include ("db.php");
                 echo "<p><h3>".$r['content']."</h3></p>";
                 echo "<p><h4>by: ".$r['email']." ";
                 echo $r['date']."</h4></p>";
+                echo "<form action='report.php' method='GET'>";
+                echo "<input type='radio' value='".$r['email']."' name='email'>Report this user</input>";
+                echo "<input type='submit' value='Report'></input>";
+                echo "</form>";
                 echo "</div>";
             }
             ?>
