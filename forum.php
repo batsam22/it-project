@@ -8,17 +8,40 @@ if (isset($_POST['forumName'])){
 }
 include ("db.php");
 ?>
+
 <style>
     body{
         background:black;
         color:white;
+	font-family: Arial,Helvetica,Roboto,Sans-Serif;
     }
+a:link {
+	color: blue;
+	background-color: transparent;
+	text-decoration: none;
+}
+a:visited {
+	color: pink;
+	background-color: transparent;
+	text-decoration: none;
+}
+a:hover {
+	color: red;
+	background-color: white;
+	text-decoration: underline;
+	border: 1px darkorange solid;
+}
+a:active {
+color: blue;
+background-color: transparent;
+text-decoration: underline;
     .content{
-        font-family: verdana;
+        font-family:verdana;
         padding: 5%;
+        float: left;
         text-align: center;
-        background-color: indigo;
-        margin-left: 15%;
+        background-color:indigo;
+        margin-left:2%;
     }
     .options{
         float: left;
@@ -29,14 +52,23 @@ include ("db.php");
     }
     .comment{
         background-color:black;
+	font-family: Helvetica;
+        
     }
-    a{
-        color:white;
-        text-decoration: none;
-    }
+   
     textarea{
         font-family:ariel;
+	text-transform: uppercase;
     }
+h3 { color: #feefff
+	font-family: Roboto;
+	text-decoration: underline;
+	text-decoration-color: red;
+    letter-spacing: 1px;
+}
+h4 { color: #feefff
+	font-family: Arial;
+}
 </style>
 <html>
     <head>
@@ -61,10 +93,6 @@ include ("db.php");
                 echo "<p><h3>".$r['content']."</h3></p>";
                 echo "<p><h4>by: ".$r['email']." ";
                 echo $r['date']."</h4></p>";
-                echo "<form action='report.php' method='GET'>";
-                echo "<input type='radio' value='".$r['email']."' name='email'>Report this user</input>";
-                echo "<input type='submit' value='Report'></input>";
-                echo "</form>";
                 echo "</div>";
             }
             ?>
@@ -74,4 +102,4 @@ include ("db.php");
             </form>
             <div>
     </body>
-</html>
+</html
