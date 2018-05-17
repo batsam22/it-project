@@ -86,7 +86,7 @@ include ("db.php");
                     $q1="select * from signin where email='$email'";
                     $res1=mysqli_query($db,$q1);
                     $r=mysqli_fetch_array($res1);
-                    echo "<p>You have ".$r['report']." reports against you. If you get 5 or more, You will not be allowed to post anything or create forums anymore.</p>";
+//                    echo "<p>You have ".$r['report']." reports against you. If you get 5 or more, You will not be allowed to post anything or create forums anymore.</p>";
                 }
                 ?>
                 <div id = "forums">
